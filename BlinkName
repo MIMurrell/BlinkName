@@ -1,0 +1,75 @@
+//BlinkName: A simple program for the Particle Argon that repeatedly blinks the name 'Matthew' in morse code.
+//Created for task 2.1P of SIT210
+//Author: Matthew Murrell
+//Date: 14/03/2022
+
+const pin_t MY_LED = D7; //Sets the LED output (Changable).
+const int MORSE_UNIT = 250; //Sets the time of each unit (Changable).
+
+//Makes the 
+SYSTEM_THREAD(ENABLED);
+
+
+// The setup() method is called once when the device boots.
+void setup() {
+	pinMode(MY_LED, OUTPUT); //Defines MY_LED as an OUTPUT pin.
+}
+
+//Makes the MY_LED LED blink out a morse code 'dit' (or dot).
+void morse_dit() {
+    digitalWrite(MY_LED, HIGH); //Turns on the LED
+	delay(MORSE_UNIT); //Waits the length of a 'dit' (one unit)
+	digitalWrite(MY_LED, LOW); //Turns off the LED
+	delay(MORSE_UNIT); //Waits one unit
+}
+
+//Makes the MY_LED LED blink out a morse code 'dah' (or dash).
+void morse_dah() {
+    digitalWrite(MY_LED, HIGH); //Turns on the LED
+	delay(3 * MORSE_UNIT); //Waits the length of a 'dah' (three units)
+	digitalWrite(MY_LED, LOW); //Turns off the LED
+	delay(MORSE_UNIT); //Waits one unit
+}
+
+
+// Repeatedly blinks out the name "Matthew" in morse code.
+void loop() {
+    
+    //Blinks out an M in morse code.
+    morse_dah();
+    morse_dah();
+    delay(2 * MORSE_UNIT);
+    
+    //Blinks out an A in morse code.
+    morse_dit();
+    morse_dah();
+    delay(2 * MORSE_UNIT);
+    
+    //Blinks out a T in morse code.
+    morse_dah();
+    delay(2 * MORSE_UNIT);
+    
+    //Blinks out a T in morse code.
+    morse_dah();
+    delay(2 * MORSE_UNIT);
+    
+    //Blinks out an H in morse code.
+    morse_dit();
+    morse_dit();
+    morse_dit();
+    morse_dit();
+    delay(2 * MORSE_UNIT);
+    
+    //Blinks out an E in morse code.
+    morse_dit();
+    delay(2 * MORSE_UNIT);
+    
+    //Blinks out a W in morse code.
+    morse_dit();
+    morse_dah();
+    morse_dah();
+    delay(2 * MORSE_UNIT);
+    
+    
+}
+
